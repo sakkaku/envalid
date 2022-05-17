@@ -7,6 +7,12 @@
     --loading-color-2: var(--accent-color);
 }
 
+@media print {
+    :root {
+        --accent-color: #AAAAAA;
+    }
+}
+
 @font-face {
     font-family: RobotoFlex;
     src: url("/fonts/RobotoFlex-Regular.ttf")
@@ -18,15 +24,17 @@
 }
 
 html {
-    color: var(--main-text-color);
-    background-image: repeating-linear-gradient(135deg, #181818, #181818 6px, #202020 6px, #202020 12px);
     font-family: RobotoFlex;
     user-select: none;
     letter-spacing: 0.05rem;
 }
 
-body {
-    padding: 5rem 0;
+@media screen {
+    body {
+        color: var(--main-text-color);
+        background-image: repeating-linear-gradient(135deg, #181818, #181818 6px, #202020 6px, #202020 12px);
+        padding: 5rem 0;
+    }
 }
 
 pre {
@@ -34,6 +42,7 @@ pre {
     background: var(--secondary-background-color);
     font-family: RobotoMono;
     box-shadow: 0rem 0rem 0.25rem 0 var(--accent-color);
+    user-select: text;
 }
 
 a {

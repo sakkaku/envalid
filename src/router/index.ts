@@ -22,10 +22,7 @@ const router = createRouter({
     {
       path: "/rambling/:id",
       name: "rambling",
-      component: () => import("../views/RamblingItem.vue"),
-      meta: {
-        title: "Rambling",
-      },
+      component: () => import("../views/RamblingItem.vue")
     },
     {
       path: "/404",

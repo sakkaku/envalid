@@ -23,8 +23,8 @@ async function loadGist() {
     router.push({ name: '404' });
     return;
   }
-  console.log(retrieved);
   gist.value = retrieved;
+  document.title = retrieved?.description;
 }
 
 function isMarkdown(file: GistDetailFile) {

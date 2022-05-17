@@ -29,9 +29,13 @@ const waitingStore = useWaitingStore();
 
   width: 100%;
   min-height: 15rem;
+}
 
-  background: var(--main-background-color);
-  box-shadow: 0rem 0rem 0.25rem 0 var(--accent-color);
+@media screen {
+  .root-container {
+    background: var(--main-background-color);
+    box-shadow: 0rem 0rem 0.25rem 0 var(--accent-color);
+  }
 }
 
 @media screen and (min-width: 40rem) {
@@ -43,7 +47,12 @@ const waitingStore = useWaitingStore();
 
 .nav-header {
   padding: 1rem;
-  border-bottom: 1px #00aaff solid;
+}
+
+@media screen {
+  .nav-header {
+    border-bottom: 1px var(--accent-color) solid;
+  }
 }
 
 .main-content {
