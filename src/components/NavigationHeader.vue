@@ -2,6 +2,7 @@
   <header>
     <h1></h1>
     <nav id="header-links"></nav>
+    <div id="header-controls"></div>
   </header>
 </template>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useWaitingStore } from "@/stores/waitingStore";
+import { useWaitingStore } from "@/stores/useWaitingStore";
 const waitingStore = useWaitingStore();
 </script>
 
