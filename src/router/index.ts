@@ -18,6 +18,14 @@ const router = createRouter({
       meta: {
         title: "Ramblings",
       },
+    },
+    {
+      path: "/:catchAll(.*)",
+      name: "404",
+      component: () => import("../views/NotFound.vue"),
+      meta: {
+        title: "Not Found",
+      },
     }
   ],
 });

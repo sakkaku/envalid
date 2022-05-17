@@ -27,12 +27,18 @@ const waitingStore = useWaitingStore();
   display: flex;
   flex-flow: column nowrap;
 
-  margin: 0 auto;
-  width: 40rem;
+  width: 100%;
   min-height: 15rem;
 
   background: var(--main-background-color);
-  border: 1px var(--accent-color) solid;
+  box-shadow: 0rem 0rem 0.25rem 0 var(--accent-color);
+}
+
+@media screen and (min-width: 40rem) {
+  .root-container {
+    width: 40rem;
+    margin: 0 auto;
+  }
 }
 
 .nav-header {
