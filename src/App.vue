@@ -37,10 +37,6 @@ import WaitSpinner from "@/components/WaitSpinner.vue";
   border-bottom: 1px #00aaff solid;
 }
 
-.nav-footer {
-  padding: 1rem;
-}
-
 .main-content {
   flex-grow: 1;
   padding: 1rem;

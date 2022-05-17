@@ -2,9 +2,7 @@
 
 <template>
   <teleport to="h1">Envalid</teleport>
-  <teleport to="#header-links"
-    ><RouterLink :to="{ name: 'home' }">Home</RouterLink></teleport
-  >
+  <teleport to="#header-links"><RouterLink :to="{ name: 'home' }">Home</RouterLink></teleport>
 
   <div class="about-area">
     <hr />
@@ -15,9 +13,7 @@
     <nav class="inline-nav">
       <a href="https://www.twitch.tv/sakkaku">Twitch</a>
       <a href="https://discord.gg/ZwpRdw3">Discord</a>
-      <a href="https://www.youtube.com/channel/UCvc7J_nOUoNhPRdL39PHVSg"
-        >Youtube</a
-      >
+      <a href="https://www.youtube.com/channel/UCvc7J_nOUoNhPRdL39PHVSg">Youtube</a>
       <a href="https://twitter.com/envalid">Twitter</a>
     </nav>
   </div>

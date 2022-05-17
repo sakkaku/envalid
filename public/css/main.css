@@ -4,14 +4,28 @@
     --accent-color: #00AAFF;
 }
 
+@font-face {
+    font-family: RobotoFlex;
+    src: url("/fonts/RobotoFlex-Regular.ttf")
+}
+
+@font-face {
+    font-family: RobotoMono;
+    src: url("/fonts/RobotoMono-Regular.ttf")
+}
+
 html {
     color: var(--main-text-color);
     background: #181818;
-    font-family: sans-serif;
+    font-family: RobotoFlex;
 }
 
 body {
     padding: 5rem 0;
+}
+
+pre {
+    font-family: RobotoMono;
 }
 
 a {

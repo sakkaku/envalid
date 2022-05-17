@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import router from "@/router";
-
 const isNotHome = computed(() => router.currentRoute.value.name != "home");
 </script>
 
@@ -19,6 +18,11 @@ const isNotHome = computed(() => router.currentRoute.value.name != "home");
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  padding: 1rem;
+}
+
+#footer-links:empty {
+  padding: 0;
 }
 
 #footer-links > *:only-child {
