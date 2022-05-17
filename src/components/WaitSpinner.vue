@@ -4,11 +4,11 @@ const waitingStore = useWaitingStore();
 </script>
 
 <template>
-  <Transition name="loading-fade">
+  <transition name="loading-fade">
     <div v-show="waitingStore.isWaiting" class="spinner-container">
       <p class="instructions">Please Wait...</p>
     </div>
-  </Transition>
+  </transition>
 </template>
 
 <style scoped>

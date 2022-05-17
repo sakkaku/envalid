@@ -9,15 +9,15 @@ const waitingStore = useWaitingStore();
 
 <template>
   <div class="root-container" :aria-busy="waitingStore.isWaiting">
-    <NavigationHeader class="nav-header" />
+    <navigation-header class="nav-header" />
 
     <main class="main-content">
-      <RouterView />
+      <router-view />
     </main>
 
-    <NavigationFooter class="nav-footer" />
+    <navigation-footer class="nav-footer" />
 
-    <WaitSpinner class="wait-spinner" />
+    <wait-spinner class="wait-spinner" />
   </div>
 </template>
 
@@ -61,5 +61,6 @@ const waitingStore = useWaitingStore();
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+  background: pink;
 }
 </style>
