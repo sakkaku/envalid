@@ -1,28 +1,28 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 
 export const useWaitingStore = defineStore({
-    id: 'waiting',
-    state: () => ({
-        waitingCounter: 0,
-    }),
-    getters: {
-        isWaiting: (state) => state.waitingCounter > 0
+  id: "waiting",
+  state: () => ({
+    waitingCounter: 0,
+  }),
+  getters: {
+    isWaiting: (state) => state.waitingCounter > 0,
+  },
+  actions: {
+    start() {
+      this.waitingCounter += 1;
     },
-    actions: {
-        start() {
-            this.waitingCounter += 1;
-        },
-        stop() {
-            this.waitingCounter -= 1;
-        },
-        async waitUntil<T>(step: Promise<T>): Promise<T> {
-            this.start();
+    stop() {
+      this.waitingCounter -= 1;
+    },
+    async waitUntil<T>(step: Promise<T>): Promise<T> {
+      this.start();
 
-            try {
-                return await step;
-            } finally {
-                this.stop();
-            }
-        }
-    }
-})
+      try {
+        return await step;
+      } finally {
+        this.stop();
+      }
+    },
+  },
+});

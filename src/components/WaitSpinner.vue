@@ -4,12 +4,11 @@ const waitingStore = useWaitingStore();
 </script>
 
 <template>
-  <div v-show="waitingStore.isWaiting" class="spinner-container">
-  </div>
+  <div v-show="waitingStore.isWaiting" class="spinner-container"></div>
 </template>
 
 <style scoped>
-  .spinner-container {
-    cursor: wait;
-  }
+.spinner-container {
+  cursor: wait;
+}
 </style>

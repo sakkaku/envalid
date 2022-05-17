@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterView } from "vue-router";
 import NavigationHeader from "@/components/NavigationHeader.vue";
 import NavigationFooter from "@/components/NavigationFooter.vue";
 import WaitSpinner from "@/components/WaitSpinner.vue";
@@ -34,7 +34,7 @@ import WaitSpinner from "@/components/WaitSpinner.vue";
 
 .nav-header {
   padding: 1rem;
-  border-bottom: 1px #00AAFF solid;
+  border-bottom: 1px #00aaff solid;
 }
 
 .nav-footer {

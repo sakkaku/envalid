@@ -1,12 +1,12 @@
 :root {
     --main-text-color: #CCC;
-    --main-background-color: #333;
+    --main-background-color: #222;
     --accent-color: #00AAFF;
 }
 
 html {
     color: var(--main-text-color);
-    background: #000;
+    background: #181818;
     font-family: sans-serif;
 }
 

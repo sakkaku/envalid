@@ -2,15 +2,15 @@
 import { computed } from "vue";
 import router from "@/router";
 
-const isNotHome = computed(() => router.currentRoute.value.name != 'home');
+const isNotHome = computed(() => router.currentRoute.value.name != "home");
 </script>
 
 <template>
-<footer>
-  <nav id="footer-links">
-    <RouterLink v-if="isNotHome" :to="{ name: 'home' }">Back</RouterLink>
-  </nav>
-</footer>
+  <footer>
+    <nav id="footer-links">
+      <RouterLink v-if="isNotHome" :to="{ name: 'home' }">Back</RouterLink>
+    </nav>
+  </footer>
 </template>
 
 <!-- needs non scoped to affect teleported links -->

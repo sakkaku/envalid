@@ -1,3 +1,1 @@
-export const mainNav = [
-    "Home"
-]
+export const mainNav = ["Home"];
