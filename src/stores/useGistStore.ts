@@ -8,24 +8,29 @@ export const useGistStore = defineStore({
   id: "gist",
   state: () => ({
     gists: [] as GistHeader[],
-    page: 1,
     isFinished: false
   }),
   actions: {
     async load(): Promise<void> {
       if (this.isFinished) return;
+
+      let page = 0;
       const perPage = 25;
       const waitingStore = useWaitingStore();
-      const newGists = await waitingStore.waitUntil(
-        getGistsForUser(ApiConstants.GithubUser, perPage, this.page)
-      );
-      this.page += 1;
 
-      if(newGists.length < perPage) {
-        this.isFinished = true;
+      while (this.isFinished == false) {
+        page += 1;
+
+        const newGists = await waitingStore.waitUntil(
+          getGistsForUser(ApiConstants.GithubUser, perPage, page)
+        );
+
+        if(newGists.length < perPage) {
+          this.isFinished = true;
+        }
+
+        this.gists.push(...newGists);
       }
-
-      this.gists.push(...newGists);
     }
   },
 });

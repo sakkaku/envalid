@@ -67,6 +67,31 @@ hr {
     background: var(--accent-color);
 }
 
+p {
+    margin-bottom: 1rem;
+}
+
+ul > li {
+    list-style: square outside;
+}
+
+ol > li {
+    list-style: decimal-leading-zero outside;
+}
+
+input {
+    color: var(--main-text-color);
+    border: none;
+    border-bottom: 1px var(--main-text-color) solid;
+    background: none;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1px var(--accent-color) solid;
+}
+
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.5s ease;

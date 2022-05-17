@@ -1,9 +1,22 @@
 <script setup lang="ts">
 import { useGistStore } from "@/stores/useGistStore";
-import { onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { formatDate } from "../helpers/formatDate";
 
 const gistStore = useGistStore();
+const searchTerms = ref('');
+const matches = computed(() => {
+  if (searchTerms.value) {
+    const filter = searchTerms.value.toLowerCase().split(' ');
+    return gistStore.gists.filter(x => {
+        const normalizedDescription = x.description.toLowerCase();
+        return filter.every(f => normalizedDescription.includes(f))
+      }
+    );
+  }
+
+  return gistStore.gists;
+});
 
 onMounted(async () => {
   await gistStore.load();
@@ -12,9 +25,10 @@ onMounted(async () => {
 
 <template>
   <teleport to="h1">Ramblings</teleport>
+  <teleport to="#header-controls"><input type="text" placeholder="search..." v-model="searchTerms" /></teleport>
 
   <div class="rambling-list">
-    <template v-for="item in gistStore.gists" :key="item.id">
+    <template v-for="item in matches" :key="item.id">
       <div class="ramble">
         <h3><router-link :to="{ name: 'rambling', params: { id: item.id } }">{{item.description}}</router-link></h3>
         <div class="other-info">
@@ -34,7 +48,7 @@ onMounted(async () => {
 }
 
 .ramble {
-  margin-bottom: 2rem;
+  margin: 1rem 0;
 }
 
 h3 {
