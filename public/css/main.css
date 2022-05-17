@@ -1,0 +1,30 @@
+:root {
+    --main-text-color: #CCC;
+    --main-background-color: #333;
+    --accent-color: #00AAFF;
+}
+
+html {
+    color: var(--main-text-color);
+    background: #000;
+    font-family: sans-serif;
+}
+
+body {
+    padding: 5rem 0;
+}
+
+a {
+    color: #00AAFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    margin: 1rem;
+    border: 1px var(--accent-color) dashed;
+}
