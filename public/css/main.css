@@ -39,6 +39,8 @@ a:hover {
 }
 
 hr {
+    height: 1px;
     margin: 1rem;
-    border: 1px var(--accent-color) dashed;
+    border: none;
+    background: var(--accent-color);
 }
