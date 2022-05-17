@@ -7,10 +7,18 @@
   <div class="about-area">
     <hr />
 
-    <div class="description">
-      <p>Job Title: Software Engineer and Benevolent Dictator of the Multiverse</p>
-      <p>Known Aliases: sakkaku, envalid</p>
-    </div>
+    <table class="description">
+      <tbody>
+        <tr>
+          <th>JOB TITLE:</th>
+          <td>SOFTWARE ENGINEER AND BENEVOLENT DICTATOR OF THE MULTIVERSE</td>
+        </tr>
+        <tr>
+          <th>ALIASES:</th>
+          <td>SAKKAKU, ENVALID</td>
+        </tr>
+      </tbody>
+    </table>
 
     <hr />
 
@@ -31,14 +39,16 @@
   height: 100%;
 }
 
-h2,
-h3 {
-  text-align: center;
-  line-height: 3rem;
+.description {
+  padding: 1rem;
 }
 
 .description {
-  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+.description th {
+  text-align: left;
 }
 
 .inline-nav {

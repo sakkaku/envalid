@@ -3,10 +3,12 @@ import { RouterView } from "vue-router";
 import NavigationHeader from "@/components/NavigationHeader.vue";
 import NavigationFooter from "@/components/NavigationFooter.vue";
 import WaitSpinner from "@/components/WaitSpinner.vue";
+import { useWaitingStore } from "@/stores/useWaitingStore";
+const waitingStore = useWaitingStore();
 </script>
 
 <template>
-  <div class="root-container">
+  <div class="root-container" :aria-busy="waitingStore.isWaiting">
     <NavigationHeader class="nav-header" />
 
     <main class="main-content">
@@ -27,6 +29,7 @@ import WaitSpinner from "@/components/WaitSpinner.vue";
 
   margin: 0 auto;
   width: 40rem;
+  min-height: 15rem;
 
   background: var(--main-background-color);
   border: 1px var(--accent-color) solid;
