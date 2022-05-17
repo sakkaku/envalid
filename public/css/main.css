@@ -1,6 +1,7 @@
 :root {
     --main-text-color: #CCC;
     --main-background-color: #222;
+    --secondary-background-color: #111;
     --accent-color: #00AAFF;
     --loading-color-1: #000000AA;
     --loading-color-2: var(--accent-color);
@@ -29,7 +30,10 @@ body {
 }
 
 pre {
+    padding: 1rem;
+    background: var(--secondary-background-color);
     font-family: RobotoMono;
+    box-shadow: 0rem 0rem 0.25rem 0 var(--accent-color);
 }
 
 a {

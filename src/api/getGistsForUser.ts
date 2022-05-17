@@ -6,5 +6,6 @@ export async function getGistsForUser(user: string, perPage: number, page: numbe
   url.searchParams.append('per_page', encodeURIComponent(perPage));
   url.searchParams.append('page', encodeURIComponent(page));
   const res = await fetch(url.toString());
+  if(!res.ok) return [];
   return res.json();
 }

@@ -6,26 +6,25 @@
   </header>
 </template>
 
-<style scoped>
+<style>
 header {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-nav {
+header nav {
   flex-grow: 1;
   text-align: right;
   height: 1.25rem;
-  gap: 2rem;
 }
 
-nav > *:not:first-child {
+header nav > * {
   margin-left: 2rem;
 }
 
-h1 {
+header h1 {
   font-size: 1.25rem;
 }
 </style>

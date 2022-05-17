@@ -1,8 +1,14 @@
-import type { GistHeaderFile } from "@/api/GistHeaderFile";
+export interface GistHeaderFile {
+  filename: string,
+  type: string,
+  language: string,
+  raw_url: string,
+  size: number
+}
 
 export interface GistHeader {
-  url: string;
   id: string;
+  url: string;
   description: string;
   files: Record<string, GistHeaderFile>;
   created_at: string;

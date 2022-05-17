@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { useWaitingStore } from "@/stores/useWaitingStore";
 import { getGistsForUser } from "@/api/getGistsForUser";
 import type { GistHeader } from "@/api/GistHeader";
+import { ApiConstants } from "@/api/ApiConstants";
 
 export const useGistStore = defineStore({
   id: "gist",
@@ -16,7 +17,7 @@ export const useGistStore = defineStore({
       const perPage = 25;
       const waitingStore = useWaitingStore();
       const newGists = await waitingStore.waitUntil(
-        getGistsForUser("sakkaku", perPage, this.page)
+        getGistsForUser(ApiConstants.GithubUser, perPage, this.page)
       );
       this.page += 1;
 

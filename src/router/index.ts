@@ -20,8 +20,24 @@ const router = createRouter({
       },
     },
     {
-      path: "/:catchAll(.*)",
+      path: "/rambling/:id",
+      name: "rambling",
+      component: () => import("../views/RamblingItem.vue"),
+      meta: {
+        title: "Rambling",
+      },
+    },
+    {
+      path: "/404",
       name: "404",
+      component: () => import("../views/NotFound.vue"),
+      meta: {
+        title: "Not Found",
+      },
+    },
+    {
+      path: "/:catchAll(.*)",
+      name: "404-catch-all",
       component: () => import("../views/NotFound.vue"),
       meta: {
         title: "Not Found",
