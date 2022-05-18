@@ -30,13 +30,13 @@ onMounted(async () => {
 
   <div class="rambling-list">
     <template v-for="item in matches" :key="item.id">
-      <div class="ramble">
-        <h3><router-link :to="{ name: 'rambling', params: { id: item.id } }">{{item.description}}</router-link></h3>
-        <div class="other-info">
-          <span>{{ formatDate(item.created_at) }}</span>
-          <span>{{ item.comments }} Comments</span>
-        </div>
-      </div>
+      <router-link :to="{ name: 'rambling', params: { id: item.id } }" class="ramble">
+          <h3>{{item.description}}</h3>
+          <div class="other-info">
+            <span>{{ formatDate(item.created_at) }}</span>
+            <span>{{ item.comments }} Comments</span>
+          </div>
+      </router-link>
     </template>
   </div>
 </template>
@@ -53,6 +53,10 @@ onMounted(async () => {
   padding: 1rem;
   border: 1px var(--main-text-color) solid;
   border-radius: 0.1rem;
+}
+
+.ramble:hover {
+  border-color: transparent;
 }
 
 h3 {
