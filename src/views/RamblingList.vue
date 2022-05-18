@@ -10,7 +10,7 @@ const matches = computed(() => {
     const filter = searchTerms.value.toLowerCase().split(' ');
     return gistStore.gists.filter(x => {
         const normalizedDescription = x.description.toLowerCase();
-        return filter.every(f => normalizedDescription.includes(f))
+        return filter.every(f => normalizedDescription.includes(f) || x.created_at.includes(f))
       }
     );
   }
@@ -25,7 +25,8 @@ onMounted(async () => {
 
 <template>
   <teleport to="h1">Ramblings</teleport>
-  <teleport to="#header-controls"><input type="text" placeholder="search..." v-model="searchTerms" /></teleport>
+  <teleport to="#header-controls"><input type="text" placeholder="search..." v-model.trim="searchTerms" /></teleport>
+  <teleport to="#header-links"><router-link :to="{ name: 'home' }">Home</router-link></teleport>
 
   <div class="rambling-list">
     <template v-for="item in matches" :key="item.id">
@@ -48,7 +49,10 @@ onMounted(async () => {
 }
 
 .ramble {
-  margin: 1rem 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px var(--main-text-color) solid;
+  border-radius: 0.1rem;
 }
 
 h3 {
@@ -62,7 +66,6 @@ h3 {
   flex-flow: row nowrap;
   justify-content: space-between;
   font-size: 0.8rem;
-  border-top: 1px var(--accent-color) solid;
 }
 
 </style>

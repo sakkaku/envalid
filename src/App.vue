@@ -34,7 +34,7 @@ const waitingStore = useWaitingStore();
 @media screen {
   .root-container {
     background: var(--main-background-color);
-    box-shadow: 0rem 0rem 0.25rem 0 var(--accent-color);
+    box-shadow: var(--box-shadow-primary);
   }
 }
 

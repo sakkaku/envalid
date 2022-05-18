@@ -57,6 +57,7 @@ onMounted(async () => {
 <style scoped>
 
 .ramble-info {
+  margin-top: -1rem;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -64,7 +65,7 @@ onMounted(async () => {
 }
 
 .ramble-file {
-  margin: 1rem 0;
+  margin-top: 1rem;
 }
 
 </style>
