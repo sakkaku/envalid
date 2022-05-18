@@ -40,7 +40,7 @@
 }
 
 .description {
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .description {
@@ -52,9 +52,9 @@
 }
 
 .inline-nav {
+  margin-top: 1rem;
   display: flex;
   flex-flow: row wrap;
-  margin: 1rem;
   align-items: center;
   justify-content: space-between;
   text-align: center;

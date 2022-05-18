@@ -57,7 +57,7 @@ const waitingStore = useWaitingStore();
 
 .main-content {
   flex-grow: 1;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .wait-spinner {
