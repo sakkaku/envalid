@@ -13,6 +13,10 @@
     :root {
         --accent-color: #AAAAAA;
     }
+
+    nav {
+        display: none !important;
+    }
 }
 
 @font-face {
