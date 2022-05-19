@@ -4,7 +4,30 @@ import NavigationHeader from "@/components/NavigationHeader.vue";
 import NavigationFooter from "@/components/NavigationFooter.vue";
 import WaitSpinner from "@/components/WaitSpinner.vue";
 import { useWaitingStore } from "@/stores/useWaitingStore";
+import { onMounted, onUnmounted, ref } from "vue";
+
 const waitingStore = useWaitingStore();
+
+function convertRemToPixels(rem: number): number {
+  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
+
+function windowResized() {
+  document.body.classList.remove('small-screen');
+
+  if (document.documentElement.clientWidth < convertRemToPixels(45)) {
+    document.body.classList.add('small-screen');
+  }
+}
+
+onMounted(() => {
+  windowResized();
+  window.addEventListener('resize', windowResized);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', windowResized);
+});
 </script>
 
 <template>
@@ -27,21 +50,22 @@ const waitingStore = useWaitingStore();
   display: flex;
   flex-flow: column nowrap;
 
-  width: 100%;
+  width: 45rem;
+  margin: 0 auto;
+
+  min-width: 15rem;
   min-height: 15rem;
+}
+
+.small-screen .root-container {
+  width: 100%;
+  margin: unset;
 }
 
 @media screen {
   .root-container {
     background: var(--main-background-color);
     box-shadow: var(--box-shadow-primary);
-  }
-}
-
-@media screen and (min-width: 40rem) {
-  .root-container {
-    width: 40rem;
-    margin: 0 auto;
   }
 }
 

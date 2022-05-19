@@ -39,7 +39,7 @@ html {
     body {
         color: var(--main-text-color);
         background-image: repeating-linear-gradient(135deg, #181818, #181818 6px, #202020 6px, #202020 12px);
-        padding: 5rem 0;
+        padding: 4rem 0;
     }
 }
 

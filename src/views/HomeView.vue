@@ -48,7 +48,10 @@
 }
 
 .description th {
+  padding-right: 1rem;
   text-align: left;
+  white-space: nowrap;
+  vertical-align: top;
 }
 
 .inline-nav {
@@ -59,4 +62,15 @@
   justify-content: space-between;
   text-align: center;
 }
+
+.small-screen .inline-nav {
+  margin-top: 0;
+  flex-flow: row wrap;
+}
+
+.small-screen .inline-nav > * {
+  width: 50%;
+  margin-top: 1rem;
+}
+
 </style>
