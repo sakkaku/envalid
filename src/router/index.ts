@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { useTitleStore } from "@/stores/useTitleStore";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,19 +38,17 @@ const router = createRouter({
       name: "404-catch-all",
       component: () => import("../views/NotFound.vue"),
       meta: {
-        title: "Not Found",
+        title: "404 - Not Found",
       },
     }
   ],
 });
 
 router.beforeEach((to, from, next) => {
-  const nearestWithTitle = to.matched
-    .slice()
-    .reverse()
+  const nearestWithTitle = to.matched.slice().reverse()
     .find((r) => r.meta && r.meta.title);
-  const title = nearestWithTitle?.meta.title;
-  document.title = title === undefined ? "Envalid" : "Envalid - " + title;
+  const title = nearestWithTitle?.meta.title as string ?? '';
+  useTitleStore().set(title);
   next();
 });
 

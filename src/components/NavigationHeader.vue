@@ -1,6 +1,12 @@
+<script setup lang="ts">
+import { useTitleStore } from "@/stores/useTitleStore";
+
+const titleStore = useTitleStore();
+</script>
+
 <template>
   <header>
-    <h1></h1>
+    <h1>{{ titleStore.title }}</h1>
     <div id="header-controls"></div>
     <nav id="header-links"></nav>
   </header>

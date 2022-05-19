@@ -1,6 +1,4 @@
 <template>
-  <teleport to="h1">404 - Not Found</teleport>
-
   <div class="not-found">
     <div>The princess you were looking for</div>
     <div>is in another castle.</div>

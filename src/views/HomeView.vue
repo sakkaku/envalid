@@ -1,7 +1,4 @@
-<script setup lang="ts"></script>
-
 <template>
-  <teleport to="h1">Envalid</teleport>
   <teleport to="#header-links"><router-link :to="{ name: 'ramblings' }">Ramblings</router-link></teleport>
 
   <div class="about-area">
