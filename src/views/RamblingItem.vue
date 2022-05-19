@@ -8,12 +8,12 @@ import { ApiConstants } from "@/api/ApiConstants";
 import { useRoute } from "vue-router";
 import { formatDate } from "@/helpers/formatDate";
 import { marked } from 'marked';
+import { useTitleStore } from "@/stores/useTitleStore";
 
 const waitingStore = useWaitingStore();
 const route = useRoute();
 
 const gist = ref<GistDetails | undefined>(undefined);
-const title = computed(() => gist.value?.description);
 const commentCount = computed(() => gist.value?.comments);
 
 async function loadGist() {
@@ -24,7 +24,7 @@ async function loadGist() {
     return;
   }
   gist.value = retrieved;
-  document.title = retrieved?.description;
+  useTitleStore().set(retrieved?.description)
 }
 
 function isMarkdown(file: GistDetailFile) {
@@ -37,7 +37,6 @@ onMounted(async () => {
 </script>
 
 <template>
-  <teleport to="h1">{{ gist?.description }}</teleport>
   <teleport to="#header-links"><router-link :to="{ name: 'home' }">Home</router-link></teleport>
   <teleport to="#footer-links"><a :href="gist?.html_url + '#comments'">{{ commentCount }} Comments</a></teleport>
 

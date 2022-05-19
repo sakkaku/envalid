@@ -24,7 +24,6 @@ onMounted(async () => {
 </script>
 
 <template>
-  <teleport to="h1">Ramblings</teleport>
   <teleport to="#header-controls"><input type="text" placeholder="search..." v-model.trim="searchTerms" /></teleport>
   <teleport to="#header-links"><router-link :to="{ name: 'home' }">Home</router-link></teleport>
 
