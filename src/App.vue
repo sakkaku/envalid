@@ -44,6 +44,11 @@ onUnmounted(() => {
   </div>
 </template>
 
+<style>
+@import "assets/reset.css";
+@import "assets/main.css";
+</style>
+
 <style scoped>
 .root-container {
   position: relative;

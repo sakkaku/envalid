@@ -53,8 +53,25 @@ onMounted(async () => {
   </template>
 </template>
 
-<style scoped>
+<style>
+p {
+  margin-bottom: 1rem;
+}
 
+ul > li {
+  list-style: square outside;
+}
+
+ol > li {
+  list-style: decimal-leading-zero outside;
+}
+
+li > ul, li > ol {
+  padding-left: 1.25rem;
+}
+</style>
+
+<style scoped>
 .ramble-info {
   margin-top: -1rem;
   display: flex;
@@ -66,5 +83,4 @@ onMounted(async () => {
 .ramble-file {
   margin-top: 1rem;
 }
-
 </style>
