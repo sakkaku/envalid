@@ -55,7 +55,7 @@ onUnmounted(() => {
   display: flex;
   flex-flow: column nowrap;
 
-  width: 45rem;
+  width: var(--app-size);
   margin: 0 auto;
 
   min-width: 15rem;

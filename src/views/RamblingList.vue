@@ -2,9 +2,12 @@
 import { useGistStore } from "@/stores/useGistStore";
 import { computed, onMounted, ref } from "vue";
 import { formatDate } from "../helpers/formatDate";
+import SearchTermDialog from "@/components/SearchTermDialog.vue";
 
 const gistStore = useGistStore();
 const searchTerms = ref('');
+const showSearch = ref(false);
+
 const matches = computed(() => {
   if (searchTerms.value) {
     const filter = searchTerms.value.toLowerCase().split(' ');
@@ -18,14 +21,22 @@ const matches = computed(() => {
   return gistStore.gists;
 });
 
+function openSearch(): void {
+  showSearch.value = true;
+}
+
+function closeSearch(): void {
+  showSearch.value = false;
+}
+
 onMounted(async () => {
   await gistStore.load();
 });
 </script>
 
 <template>
-  <teleport to="#header-controls"><input type="text" placeholder="search..." v-model.trim="searchTerms" /></teleport>
   <teleport to="#header-links"><router-link :to="{ name: 'home' }">Home</router-link></teleport>
+  <teleport to="#header-links"><a @click="openSearch">Search</a></teleport>
 
   <div class="rambling-list">
     <template v-for="item in matches" :key="item.id">
@@ -38,6 +49,8 @@ onMounted(async () => {
       </router-link>
     </template>
   </div>
+
+  <search-term-dialog v-if="showSearch" v-model="searchTerms" @finished="closeSearch" />
 </template>
 
 <style scoped>
@@ -70,5 +83,4 @@ h3 {
   justify-content: space-between;
   font-size: 0.8rem;
 }
-
 </style>

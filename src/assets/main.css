@@ -5,8 +5,11 @@
     --accent-color: #00AAFF;
     --loading-color-1: #000000AA;
     --loading-color-2: var(--accent-color);
+    --dialog-color-1: #000000AA;
+    --dialog-color-2: #11111155;
     --box-shadow-primary: 0rem 0rem 0.25rem 0 var(--accent-color);
     --box-shadow-secondary: 0rem 0rem 0.25rem 0 var(--main-text-color);
+    --app-size: 45rem;
 }
 
 @media print {
@@ -57,13 +60,18 @@ a {
     font-weight: bold;
     padding: 5px;
     margin: -5px;
+    cursor: pointer;
+}
+
+a:disabled {
+    color: var(--main-text-color);
+    cursor: not-allowed;
 }
 
 a:hover {
     color: var(--main-background-color);
     background: var(--accent-color);
     border: 0px var(--accent-color) solid;
-    border-radius: 0px;
 }
 
 hr {
@@ -90,16 +98,51 @@ li > ul, li > ol {
 }
 
 input {
+    padding: 0.25rem;
     color: var(--main-text-color);
-    border: none;
-    border-bottom: 1px var(--main-text-color) solid;
-    background: none;
+    border: 0.1rem var(--main-text-color) solid;
+    background: var(--main-background-color);
 }
 
 input:focus {
     outline: none;
+    border-color: var(--accent-color);
+}
+
+.form-row, .form-buttons {
+    display: block;
+    padding: 1rem 0;
+}
+
+.form-row label {
+    display: block;
+}
+
+.form-row input {
+    width: 100%;
+}
+
+.form-buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form-buttons > button {
+    padding: 0.5rem 1rem;
+    margin: -0.5rem -1rem;
+    margin-left: 1rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    background: none;
     border: none;
-    border-bottom: 1px var(--accent-color) solid;
+}
+
+.form-buttons > button:hover {
+    color: var(--main-background-color);
+    background: var(--accent-color);
+    border: 0px var(--accent-color) solid;
 }
 
 .fade-enter-active,
