@@ -82,5 +82,6 @@ li > ul, li > ol {
 
 .ramble-file {
   margin-top: 1rem;
+  font-size: 0.9rem;
 }
 </style>

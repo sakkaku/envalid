@@ -34,13 +34,14 @@
   padding: 1.5rem;
   background: var(--main-background-color);
   box-shadow: var(--box-shadow-primary);
+  width: calc(var(--app-size) * 0.5);
+}
+
+.small-screen .dialog-content {
+  width: 95%;
 }
 
 .dialog-title {
   margin-bottom: 1rem;
-}
-
-.dialog-body {
-  width: calc(var(--app-size) * 0.5);
 }
 </style>
