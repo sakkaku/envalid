@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
-import Dialog from './Dialog.vue';
+import AbstractDialog from './AbstractDialog.vue';
 
 const props = defineProps({
   modelValue: String
@@ -35,7 +35,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <Dialog>
+  <abstract-dialog>
     <template #header>Search</template>
     <template #body>
       <form @submit.prevent="finalizeSearch" @reset.prevent="cancelSearch">
@@ -49,7 +49,7 @@ onMounted(() => {
         </div>
       </form>
     </template>
-  </Dialog>
+  </abstract-dialog>
 </template>
 
 <style scoped>
