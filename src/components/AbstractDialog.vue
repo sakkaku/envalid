@@ -38,7 +38,7 @@
 }
 
 .small-screen .dialog-content {
-  width: 95%;
+  width: calc(100% - 4rem);
 }
 
 .dialog-title {
