@@ -40,7 +40,7 @@ onMounted(async () => {
 
   <div class="rambling-list">
     <template v-for="item in matches" :key="item.id">
-      <router-link :to="{ name: 'rambling', params: { id: item.id } }" class="ramble">
+      <router-link :to="{ name: 'rambling', params: { id: item.id } }" :title="item.description" class="ramble">
           <h3>{{item.description}}</h3>
           <div class="other-info">
             <span>{{ formatDate(item.created_at) }}</span>
@@ -54,7 +54,6 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-
 .rambling-list {
   display: flex;
   flex-flow: column nowrap;
@@ -74,6 +73,9 @@ onMounted(async () => {
 h3 {
   width: 100%;
   margin-bottom: 0.3rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .other-info {
