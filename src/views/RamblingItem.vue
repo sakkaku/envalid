@@ -47,7 +47,7 @@ onMounted(async () => {
 
   <template v-for="file in gist?.files" :key="file.filename">
     <section v-if="isMarkdown(file)" v-html="marked.parse(file.content)" class="ramble-item-section" />
-    <pre v-else>
+    <pre v-else class="ramble-item-code">
       <code>
         {{ file.content }}
       </code>
@@ -82,8 +82,9 @@ onMounted(async () => {
   font-size: 0.8rem;
 }
 
-.ramble-item-section {
+.ramble-item-section, .ramble-item-code {
   margin-top: 1rem;
   font-size: 0.9rem;
+  user-select: text;
 }
 </style>

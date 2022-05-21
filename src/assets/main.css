@@ -54,7 +54,6 @@ pre {
     background: var(--secondary-background-color);
     font-family: RobotoMono;
     box-shadow: var(--box-shadow-primary);
-    user-select: text;
 }
 
 a {
