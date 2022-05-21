@@ -46,27 +46,29 @@ onMounted(async () => {
   </div>
 
   <template v-for="file in gist?.files" :key="file.filename">
-    <div class="ramble-file">
-      <div v-if="isMarkdown(file)" v-html="marked.parse(file.content)" />
-      <pre v-else>{{ file.content }}</pre>
-    </div>
+    <section v-if="isMarkdown(file)" v-html="marked.parse(file.content)" class="ramble-item-section" />
+    <pre v-else>
+      <code>
+        {{ file.content }}
+      </code>
+    </pre>
   </template>
 </template>
 
 <style>
-p {
+.ramble-item-section > *:not(:last-child) {
   margin-bottom: 1rem;
 }
 
-ul > li {
+.ramble-item-section ul > li {
   list-style: square outside;
 }
 
-ol > li {
+.ramble-item-section ol > li {
   list-style: decimal-leading-zero outside;
 }
 
-li > ul, li > ol {
+.ramble-item-section li > ul, .ramble-item-section li > ol {
   padding-left: 1.25rem;
 }
 </style>
@@ -80,8 +82,11 @@ li > ul, li > ol {
   font-size: 0.8rem;
 }
 
-.ramble-file {
+.ramble-item-section {
   margin-top: 1rem;
   font-size: 0.9rem;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 </style>

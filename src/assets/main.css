@@ -35,7 +35,7 @@
 html {
     font-family: RobotoFlex;
     user-select: none;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.01rem;
 }
 
 @media screen {
@@ -79,22 +79,6 @@ hr {
     margin: 1rem 0;
     border: none;
     background: var(--accent-color);
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-ul > li {
-    list-style: square outside;
-}
-
-ol > li {
-    list-style: decimal-leading-zero outside;
-}
-
-li > ul, li > ol {
-    padding-left: 1.25rem;
 }
 
 input {
