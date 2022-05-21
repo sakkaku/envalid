@@ -36,6 +36,9 @@ html {
     font-family: RobotoFlex;
     user-select: none;
     letter-spacing: 0.01rem;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
 }
 
 @media screen {

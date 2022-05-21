@@ -85,8 +85,5 @@ onMounted(async () => {
 .ramble-item-section {
   margin-top: 1rem;
   font-size: 0.9rem;
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
 }
 </style>
