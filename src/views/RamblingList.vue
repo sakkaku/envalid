@@ -20,6 +20,7 @@ const matches = computed(() => {
 
   return gistStore.gists;
 });
+const isEmpty = computed(() => matches.value.length <= 0);
 
 function openSearch(): void {
   showSearch.value = true;
@@ -38,7 +39,11 @@ onMounted(async () => {
   <teleport to="#header-links"><router-link :to="{ name: 'home' }">Home</router-link></teleport>
   <teleport to="#header-links"><a @click="openSearch">Search</a></teleport>
 
-  <div class="rambling-list">
+  <div v-if="isEmpty" class="empty">
+    <template v-if="searchTerms">Nothing was found for the search filter '{{ searchTerms }}'.</template>
+    <template v-else>Nothing to display (yet).</template>
+  </div>
+  <div v-else class="rambling-list">
     <template v-for="item in matches" :key="item.id">
       <router-link :to="{ name: 'rambling', params: { id: item.id } }" :title="item.description" class="ramble">
           <h3>{{item.description}}</h3>
@@ -60,10 +65,13 @@ onMounted(async () => {
 }
 
 .ramble {
-  margin-bottom: 1rem;
   padding: 1rem;
   border: 1px var(--main-text-color) solid;
-  border-radius: 0.1rem;
+  box-shadow: var(--box-shadow-secondary);
+}
+
+.ramble:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 .ramble:hover {
