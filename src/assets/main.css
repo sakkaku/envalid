@@ -97,7 +97,10 @@ input:focus {
 
 .form-row, .form-buttons {
     display: block;
-    padding: 1rem 0;
+}
+
+.form-row:not(:last-child) {
+    margin-bottom: 2rem;
 }
 
 .form-row label {
