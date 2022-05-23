@@ -41,8 +41,8 @@ onMounted(async () => {
   <teleport to="#footer-links"><a :href="gist?.html_url + '#comments'">{{ commentCount }} Comments</a></teleport>
 
   <div class="ramble-info">
-    <span>Created On: {{ formatDate(gist?.created_at) }}</span>
-    <span>Updated On: {{ formatDate(gist?.updated_at) }}</span>
+    <div :title="gist?.created_at">Created On: {{ formatDate(gist?.created_at) }}</div>
+    <div :title="gist?.updated_at">Updated On: {{ formatDate(gist?.updated_at) }}</div>
   </div>
 
   <template v-for="file in gist?.files" :key="file.filename">
