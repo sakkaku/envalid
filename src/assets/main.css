@@ -24,12 +24,14 @@
 
 @font-face {
     font-family: RobotoFlex;
-    src: url("/fonts/RobotoFlex-Regular.ttf")
+    src: local(Helvetica), url("/fonts/RobotoFlex-Regular.ttf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: RobotoMono;
-    src: url("/fonts/RobotoMono-Regular.ttf")
+    src: local("Courier New"), url("/fonts/RobotoMono-Regular.ttf");
+    font-display: swap;
 }
 
 html {
