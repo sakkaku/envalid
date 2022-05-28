@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { useTitleStore } from "@/stores/useTitleStore";
+import { useMetaStore } from "@/stores/useMetaStore";
 import { useGistEntryStore } from "@/stores/useGistEntryStore";
 import { useGistListStore } from "@/stores/useGistListStore";
 
@@ -60,21 +60,21 @@ const router = createRouter({
       component: () => import("../views/NotFound.vue"),
       meta: {
         title: "Not Found",
-      },
+        description: "The specified page does not exist"
+      }
     },
     {
       path: "/:catchAll(.*)",
       name: "404-catch-all",
-      component: () => import("../views/NotFound.vue"),
-      meta: {
-        title: "404 - Not Found",
-      },
+      redirect: { name: "404" }
     }
   ],
 });
 
 router.afterEach((to, _from) => {
-  useTitleStore().set(to.meta?.title);
+  const store = useMetaStore();
+  store.setTitle(to.meta?.title);
+  store.setDescription(to.meta?.description);
 });
 
 export default router;

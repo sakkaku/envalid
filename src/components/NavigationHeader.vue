@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useTitleStore } from "@/stores/useTitleStore";
+import { useMetaStore } from "@/stores/useMetaStore";
 
-const titleStore = useTitleStore();
+const metaStore = useMetaStore();
 </script>
 
 <template>
   <header>
-    <h1>{{ titleStore.title }}</h1>
+    <h1>{{ metaStore.title }}</h1>
     <nav id="header-links"></nav>
   </header>
 </template>

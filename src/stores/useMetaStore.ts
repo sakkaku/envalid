@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
 
-export const useTitleStore = defineStore({
+export const useMetaStore = defineStore({
   id: "title",
   state: () => ({
     title: ""
   }),
   actions: {
-    set(newTitle: string | undefined): void {
+    setTitle(newTitle: string | undefined): void {
       const isHome = newTitle === "Home";
       if (isHome) {
         this.title = "Envalid";
@@ -16,9 +16,8 @@ export const useTitleStore = defineStore({
         document.title = (this.title != "" ? (this.title + " - ") : "") + "Envalid";
       }
     },
-    reset(): void {
-      this.set("");
+    setDescription(newDescription: string | undefined): void {
+      document.querySelector("meta[name=\"description\"]")?.setAttribute("content", newDescription ?? "");
     }
   }
 });
-
