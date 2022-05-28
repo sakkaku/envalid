@@ -4,7 +4,7 @@ import NavigationHeader from "@/components/NavigationHeader.vue";
 import NavigationFooter from "@/components/NavigationFooter.vue";
 import WaitSpinner from "@/components/WaitSpinner.vue";
 import { useWaitingStore } from "@/stores/useWaitingStore";
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted } from "vue";
 
 const waitingStore = useWaitingStore();
 
@@ -31,7 +31,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="root-container" :aria-busy="waitingStore.isWaiting">
+  <div class="root-container">
     <navigation-header class="nav-header" />
 
     <main class="main-content">
