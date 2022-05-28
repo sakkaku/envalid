@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useGistStore } from "@/stores/useGistStore";
-import { computed, onMounted, ref } from "vue";
+import { useGistListStore } from "@/stores/useGistListStore";
+import { computed, ref } from "vue";
 import { formatDate } from "../helpers/formatDate";
 import SearchTermDialog from "@/components/SearchTermDialog.vue";
 
-const gistStore = useGistStore();
+const gistStore = useGistListStore();
 const searchTerms = ref('');
 const showSearch = ref(false);
 
@@ -29,10 +29,6 @@ function openSearch(): void {
 function closeSearch(): void {
   showSearch.value = false;
 }
-
-onMounted(async () => {
-  await gistStore.load();
-});
 </script>
 
 <template>
@@ -55,7 +51,7 @@ onMounted(async () => {
     </template>
   </div>
 
-  <search-term-dialog v-if="showSearch" v-model="searchTerms" @finished="closeSearch" />
+  <SearchTermDialog v-if="showSearch" v-model="searchTerms" @finished="closeSearch" />
 </template>
 
 <style scoped>

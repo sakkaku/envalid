@@ -4,8 +4,8 @@ import { getGistsForUser } from "@/api/getGistsForUser";
 import type { GistHeader } from "@/api/GistHeader";
 import { ApiConstants } from "@/api/ApiConstants";
 
-export const useGistStore = defineStore({
-  id: "gist",
+export const useGistListStore = defineStore({
+  id: "gist-list",
   state: () => ({
     gists: [] as GistHeader[],
     isFinished: false
@@ -18,7 +18,7 @@ export const useGistStore = defineStore({
       const perPage = 25;
       const waitingStore = useWaitingStore();
 
-      while (this.isFinished == false) {
+      while (!this.isFinished) {
         page += 1;
 
         const newGists = await waitingStore.waitUntil(

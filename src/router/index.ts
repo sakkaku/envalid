@@ -1,5 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useTitleStore } from "@/stores/useTitleStore";
+import { useGistEntryStore } from "@/stores/useGistEntryStore";
+import { useGistListStore } from "@/stores/useGistListStore";
+
+declare module 'vue-router' {
+  interface RouteMeta {
+    title?: string,
+    description?: string
+  }
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,6 +19,7 @@ const router = createRouter({
       component: () => import("../views/HomeView.vue"),
       meta: {
         title: "Home",
+        description: "Benevolent Dictator of the Multiverse"
       }
     },
     {
@@ -18,12 +28,31 @@ const router = createRouter({
       component: () => import("../views/RamblingList.vue"),
       meta: {
         title: "Ramblings",
+        description: "Random ramblings and findings"
       },
+      async beforeEnter(_to, _from, next) {
+        const store = useGistListStore();
+        await store.load();
+        next();
+      }
     },
     {
       path: "/rambling/:id",
       name: "rambling",
-      component: () => import("../views/RamblingItem.vue")
+      component: () => import("../views/RamblingItem.vue"),
+      async beforeEnter(to, _from, next) {
+        const id = to.params.id as string;
+        const store = useGistEntryStore();
+        const entry = await store.load(id);
+
+        if (entry != undefined) {
+          to.meta.title = entry.description;
+          to.meta.description = entry.description;
+          next();
+        } else {
+          next({name: "404"});
+        }
+      }
     },
     {
       path: "/404",
@@ -44,12 +73,8 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  const nearestWithTitle = to.matched.slice().reverse()
-    .find((r) => r.meta && r.meta.title);
-  const title = nearestWithTitle?.meta.title as string ?? '';
-  useTitleStore().set(title);
-  next();
+router.afterEach((to, _from) => {
+  useTitleStore().set(to.meta?.title);
 });
 
 export default router;

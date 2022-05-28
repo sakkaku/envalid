@@ -1,39 +1,17 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
-import router from "@/router";
-import { useWaitingStore } from "@/stores/useWaitingStore";
+import { computed, ref } from "vue";
 import type { GistDetailFile, GistDetails } from "@/api/GistDetails";
-import { getGistDetails } from "@/api/getGistDetails";
-import { ApiConstants } from "@/api/ApiConstants";
-import { useRoute } from "vue-router";
 import { formatDate } from "@/helpers/formatDate";
 import { marked } from 'marked';
-import { useTitleStore } from "@/stores/useTitleStore";
+import { useGistEntryStore } from "@/stores/useGistEntryStore";
 
-const waitingStore = useWaitingStore();
-const route = useRoute();
-
-const gist = ref<GistDetails | undefined>(undefined);
-const commentCount = computed(() => gist.value?.comments);
-
-async function loadGist() {
-  const id = route.params.id as string;
-  const retrieved = id ? await getGistDetails(id) : undefined;
-  if(retrieved == undefined || retrieved.owner.login != ApiConstants.GithubUser) {
-    router.push({ name: '404' });
-    return;
-  }
-  gist.value = retrieved;
-  useTitleStore().set(retrieved?.description)
-}
+const gistEntryStore = useGistEntryStore();
+const gist = ref<GistDetails>(gistEntryStore.gist!);
+const commentCount = computed(() => gist.value.comments);
 
 function isMarkdown(file: GistDetailFile) {
   return file.type === "text/markdown";
 }
-
-onMounted(async () => {
-  await waitingStore.waitUntil(loadGist());
-})
 </script>
 
 <template>
