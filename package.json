@@ -1,5 +1,7 @@
 {
   "name": "envalid",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
