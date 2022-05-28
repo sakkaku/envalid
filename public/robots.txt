@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /ramblings
+Allow: /rambling
+Disallow: /404
+
+Sitemap: https://envalid.com/sitemap.xml
