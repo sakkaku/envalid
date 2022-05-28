@@ -4,7 +4,7 @@ import { ApiConstants } from "@/api/ApiConstants";
 import type { RepositoryHeader } from "@/api/RepositoryHeader";
 import { getRepositoriesForUser } from "@/api/getRepositoriesForUser";
 
-export const useRepoStore = defineStore({
+export const useRepositoryStore = defineStore({
   id: "repo-list",
   state: () => ({
     repositories: [] as RepositoryHeader[],

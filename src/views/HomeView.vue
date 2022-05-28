@@ -1,19 +1,24 @@
 <template>
-  <teleport to="#header-links"><router-link :to="{ name: 'ramblings' }">Ramblings</router-link></teleport>
+  <teleport to="#header-links">
+    <router-link :to="{ name: 'projects' }">Projects</router-link>
+  </teleport>
+  <teleport to="#header-links">
+    <router-link :to="{ name: 'ramblings' }">Ramblings</router-link>
+  </teleport>
 
   <div class="about-area">
     <hr />
 
-    <table class="description">
+    <table aria-label="pointless information" class="description">
       <tbody>
-        <tr>
-          <th>JOB TITLE:</th>
-          <td>SOFTWARE ENGINEER AND BENEVOLENT DICTATOR OF THE MULTIVERSE</td>
-        </tr>
-        <tr>
-          <th>ALIASES:</th>
-          <td>SAKKAKU, ENVALID</td>
-        </tr>
+      <tr>
+        <th>JOB TITLE:</th>
+        <td>SOFTWARE ENGINEER AND BENEVOLENT DICTATOR OF THE MULTIVERSE</td>
+      </tr>
+      <tr>
+        <th>ALIASES:</th>
+        <td>SAKKAKU, ENVALID</td>
+      </tr>
       </tbody>
     </table>
 
