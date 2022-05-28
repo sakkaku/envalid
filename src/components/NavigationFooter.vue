@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import router from "@/router";
+
 const isNotHome = computed(() => router.currentRoute.value.name != "home");
 </script>
 
@@ -12,8 +13,14 @@ const isNotHome = computed(() => router.currentRoute.value.name != "home");
   </footer>
 </template>
 
-<!-- needs non scoped to affect teleported links -->
 <style>
+#footer-links > *:only-child {
+  flex-grow: 1;
+  text-align: center;
+}
+</style>
+
+<style scoped>
 #footer-links {
   display: flex;
   flex-flow: row nowrap;
@@ -23,10 +30,5 @@ const isNotHome = computed(() => router.currentRoute.value.name != "home");
 
 #footer-links:empty {
   padding: 0;
-}
-
-#footer-links > *:only-child {
-  flex-grow: 1;
-  text-align: center;
 }
 </style>
