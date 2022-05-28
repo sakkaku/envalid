@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 export const useMetaStore = defineStore({
-  id: "title",
+  id: "meta",
   state: () => ({
     title: ""
   }),
