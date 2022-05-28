@@ -1,0 +1,18 @@
+export interface RepositoryHeader {
+  id: number,
+  name: string,
+  full_name: string,
+  html_url: string,
+  description: string,
+  topics: string[],
+  fork: boolean,
+  archived: boolean,
+  disabled: boolean,
+  forks_count: number,
+  stargazers_count: number,
+  watchers_count: number,
+  open_issues_count: number,
+  pushed_at: string,
+  created_at: string,
+  updated_at: string,
+}

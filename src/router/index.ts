@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import { useMetaStore } from "@/stores/useMetaStore";
 import { useGistEntryStore } from "@/stores/useGistEntryStore";
 import { useGistListStore } from "@/stores/useGistListStore";
+import { useRepositoryStore } from "@/stores/useRepositoryStore";
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -50,8 +51,22 @@ const router = createRouter({
           to.meta.description = entry.description;
           next();
         } else {
-          next({name: "404"});
+          next({ name: "404" });
         }
+      }
+    },
+    {
+      path: "/projects",
+      name: "projects",
+      component: () => import("../views/ProjectList.vue"),
+      meta: {
+        title: "Projects",
+        description: "Random projects and crimes against humanity"
+      },
+      async beforeEnter(_to, _from, next) {
+        const store = useRepositoryStore();
+        await store.load();
+        next();
       }
     },
     {
