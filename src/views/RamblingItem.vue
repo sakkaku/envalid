@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import type { GistDetailFile, GistDetails } from "@/api/GistDetails";
+import type { GistDetailFile } from "@/api/GistDetails";
 import { formatDate } from "@/helpers/formatDate";
-import { marked } from 'marked';
+import { marked } from "marked";
 import { useGistEntryStore } from "@/stores/useGistEntryStore";
 
 const gistEntryStore = useGistEntryStore();
-const gist = ref<GistDetails>(gistEntryStore.gist!);
-const commentCount = computed(() => gist.value.comments);
+const gist = ref(gistEntryStore.gist);
+const commentCount = computed(() => gist.value?.comments);
 
 function isMarkdown(file: GistDetailFile) {
   return file.type === "text/markdown";
@@ -24,7 +24,8 @@ function isMarkdown(file: GistDetailFile) {
   </div>
 
   <template v-for="file in gist?.files" :key="file.filename">
-    <section v-if="isMarkdown(file)" v-html="marked.parse(file.content)" class="ramble-item-section" />
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <section v-if="isMarkdown(file)" class="ramble-item-section" v-html="marked.parse(file.content)" />
     <pre v-else class="ramble-item-code">
       <code>
         {{ file.content }}

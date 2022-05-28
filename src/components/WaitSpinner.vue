@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useWaitingStore } from "@/stores/useWaitingStore";
+
 const waitingStore = useWaitingStore();
 </script>
 
@@ -21,24 +22,17 @@ const waitingStore = useWaitingStore();
   font-weight: 900;
   letter-spacing: 0.8rem;
   cursor: wait;
-  background-image: repeating-linear-gradient(45deg, var(--loading-color-1), var(--loading-color-1) 1rem, var(--loading-color-2) 1rem, var(--loading-color-2) 2rem);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--loading-color-1),
+    var(--loading-color-1) 1rem,
+    var(--loading-color-2) 1rem,
+    var(--loading-color-2) 2rem
+  );
 }
 
 .instructions {
   padding: 1rem 2rem;
   background: black;
-}
-
-.loading-fade-enter-active {
-  transition: none;
-}
-
-.loading-fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
-}
-
-.loading-fade-enter-from,
-.loading-fade-leave-to {
-  opacity: 0;
 }
 </style>

@@ -27,7 +27,13 @@
   align-items: center;
   justify-content: center;
 
-  background-image: repeating-linear-gradient(45deg, var(--dialog-color-1), var(--dialog-color-1) 1rem, var(--dialog-color-2) 1rem, var(--dialog-color-2) 2rem);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--dialog-color-1),
+    var(--dialog-color-1) 1rem,
+    var(--dialog-color-2) 1rem,
+    var(--dialog-color-2) 2rem
+  );
 }
 
 .dialog-content {

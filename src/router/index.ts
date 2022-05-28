@@ -71,7 +71,7 @@ const router = createRouter({
   ],
 });
 
-router.afterEach((to, _from) => {
+router.afterEach((to) => {
   const store = useMetaStore();
   store.setTitle(to.meta?.title);
   store.setDescription(to.meta?.description);

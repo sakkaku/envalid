@@ -3,10 +3,7 @@ import { RouterView } from "vue-router";
 import NavigationHeader from "@/components/NavigationHeader.vue";
 import NavigationFooter from "@/components/NavigationFooter.vue";
 import WaitSpinner from "@/components/WaitSpinner.vue";
-import { useWaitingStore } from "@/stores/useWaitingStore";
 import { onMounted, onUnmounted } from "vue";
-
-const waitingStore = useWaitingStore();
 
 function convertRemToPixels(rem: number): number {
   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
