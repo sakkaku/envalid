@@ -23,17 +23,17 @@ const focus = ref<HTMLInputElement | null>(null);
 
 function finalizeSearch(): void {
   searchTerms.value = modalValue.value;
-  emit('finished');
+  emit("finished");
 }
 
 function cancelSearch(): void {
-  searchTerms.value = '';
-  emit('finished');
+  searchTerms.value = "";
+  emit("finished");
 }
 
 onMounted(() => {
   focus.value?.focus();
-})
+});
 </script>
 
 <template>

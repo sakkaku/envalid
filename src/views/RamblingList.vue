@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { useGistListStore } from "@/stores/useGistListStore";
 import { computed, ref } from "vue";
-import { formatDate } from "../helpers/formatDate";
+import { formatDate } from "@/helpers/formatDate";
 import SearchTermDialog from "@/components/SearchTermDialog.vue";
 
 const gistStore = useGistListStore();
-const searchTerms = ref('');
+const searchTerms = ref("");
 const showSearch = ref(false);
 
 const matches = computed(() => {
   if (searchTerms.value) {
-    const filter = searchTerms.value.toLowerCase().split(' ');
+    const filter = searchTerms.value.toLowerCase().split(" ");
     return gistStore.gists.filter(x => {
         const normalizedDescription = x.description.toLowerCase();
-        return filter.every(f => normalizedDescription.includes(f) || x.created_at.includes(f))
+      return filter.every(f => normalizedDescription.includes(f) || x.created_at.includes(f));
       }
     );
   }

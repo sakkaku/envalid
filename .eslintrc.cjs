@@ -11,6 +11,8 @@ module.exports = {
     "vue/setup-compiler-macros": true
   },
   rules: {
-    "max-len": ["error", { "code": 120 }]
+    "max-len": ["error", { code: 120 }],
+    semi: ["error", "always"],
+    quotes: ["error", "double"]
   }
 };

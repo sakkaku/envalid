@@ -10,20 +10,20 @@ function convertRemToPixels(rem: number): number {
 }
 
 function windowResized() {
-  document.body.classList.remove('small-screen');
+  document.body.classList.remove("small-screen");
 
   if (document.documentElement.clientWidth < convertRemToPixels(45)) {
-    document.body.classList.add('small-screen');
+    document.body.classList.add("small-screen");
   }
 }
 
 onMounted(() => {
   windowResized();
-  window.addEventListener('resize', windowResized);
+  window.addEventListener("resize", windowResized);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', windowResized);
+  window.removeEventListener("resize", windowResized);
 });
 </script>
 

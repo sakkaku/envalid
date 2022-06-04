@@ -1,3 +1,3 @@
 export enum ApiConstants {
-  GithubUser = 'sakkaku',
+  GithubUser = "sakkaku",
 }

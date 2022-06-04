@@ -4,7 +4,7 @@ import { useGistEntryStore } from "@/stores/useGistEntryStore";
 import { useGistListStore } from "@/stores/useGistListStore";
 import { useRepositoryStore } from "@/stores/useRepositoryStore";
 
-declare module 'vue-router' {
+declare module "vue-router" {
   interface RouteMeta {
     title?: string,
     description?: string
