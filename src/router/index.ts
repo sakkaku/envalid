@@ -3,6 +3,7 @@ import { useMetaStore } from "@/stores/useMetaStore";
 import { useGistEntryStore } from "@/stores/useGistEntryStore";
 import { useGistListStore } from "@/stores/useGistListStore";
 import { useRepositoryStore } from "@/stores/useRepositoryStore";
+import { useWaitingStore } from "@/stores/useWaitingStore";
 
 declare module "vue-router" {
   interface RouteMeta {
@@ -84,6 +85,17 @@ const router = createRouter({
       redirect: { name: "404" }
     }
   ],
+});
+
+router.beforeEach((_to, _from, next) => {
+  const waitingStore = useWaitingStore();
+  waitingStore.start();
+  next();
+});
+
+router.afterEach(() => {
+  const waitingStore = useWaitingStore();
+  waitingStore.stop();
 });
 
 router.afterEach((to) => {

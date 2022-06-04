@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { useWaitingStore } from "@/stores/useWaitingStore";
 import { getGistDetails } from "@/api/getGistDetails";
 import { ApiConstants } from "@/api/ApiConstants";
 import type { GistDetails } from "@/api/GistDetails";
@@ -15,8 +14,7 @@ export const useGistEntryStore = defineStore({
         return this.gist;
       }
 
-      const waitingStore = useWaitingStore();
-      const retrieved = id ? await waitingStore.waitUntil(getGistDetails(id)) : undefined;
+      const retrieved = id ? await getGistDetails(id) : undefined;
 
       if (retrieved == undefined || retrieved.owner.login != ApiConstants.GithubUser) {
         return undefined;
