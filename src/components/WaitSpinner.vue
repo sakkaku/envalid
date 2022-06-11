@@ -14,7 +14,6 @@ const waitingStore = useWaitingStore();
 
 <style scoped>
 .spinner-container {
-  margin: -0.5rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
