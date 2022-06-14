@@ -26,11 +26,7 @@ function isMarkdown(file: GistDetailFile) {
   <template v-for="file in gist?.files" :key="file.filename">
     <!-- eslint-disable-next-line vue/no-v-html -->
     <section v-if="isMarkdown(file)" class="ramble-item-section" v-html="marked.parse(file.content)" />
-    <pre v-else class="ramble-item-code">
-      <code>
-        {{ file.content }}
-      </code>
-    </pre>
+    <pre v-else class="ramble-item-code"><code>{{ file.content }}</code></pre>
   </template>
 </template>
 
@@ -65,5 +61,6 @@ function isMarkdown(file: GistDetailFile) {
   margin-top: 1rem;
   font-size: 0.9rem;
   user-select: text;
+  overflow: auto;
 }
 </style>
