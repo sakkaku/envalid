@@ -133,7 +133,6 @@ input:focus {
 .form-buttons > button:hover {
     color: var(--main-background-color);
     background: var(--accent-color);
-    border: 0px var(--accent-color) solid;
 }
 
 .fade-enter-active,
@@ -145,4 +144,18 @@ input:focus {
 .fade-leave-to {
     opacity: 0;
     background: pink;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
 }
