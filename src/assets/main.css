@@ -51,8 +51,7 @@ html {
     }
 }
 
-pre {
-    padding: 1rem;
+pre, .hljs {
     background: var(--secondary-background-color);
     font-family: RobotoMono;
     box-shadow: var(--box-shadow-primary);
@@ -75,7 +74,6 @@ a:disabled {
 a:hover {
     color: var(--main-background-color);
     background: var(--accent-color);
-    border: 0px var(--accent-color) solid;
 }
 
 hr {

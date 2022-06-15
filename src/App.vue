@@ -43,6 +43,7 @@ onUnmounted(() => {
 
 <style>
 @import "assets/reset.css";
+@import "highlight.js/styles/github-dark.css";
 @import "assets/main.css";
 </style>
 
